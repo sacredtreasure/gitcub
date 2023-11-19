@@ -1,12 +1,12 @@
-use clap::Subcommand;
+use clap::Command;
 
 use crate::pr::Pr;
 
-#[derive(Subcommand)]
+#[derive(Command)]
 pub enum Gitcub {
     /// co-ordinate pulls
     Pr {
-        #[command(subcommand)]
+        #[command(command)]
         command: Pr,
     },
     /// log (in/out)

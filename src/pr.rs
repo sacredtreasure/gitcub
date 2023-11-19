@@ -4,19 +4,23 @@ use clap::Subcommand;
 
 pub enum Pr {
     /// spawn a pull
-    Create,
-    /// list pulls
+    Create {
+        #[arg(long, short)]
+        title: String,
+        draft: bool 
+    },
     List,
-}
-
+    }
+    /// list pulls
+    
 impl Pr {
     pub fn exec(&self) {
         match self {
-            Pr::Create => {
-                println!("Pull Request Created!")
+            Pr::Create { title: &String, draft: bool} => {
+                println!("PR with title {title} is created and the draft status is {draft}");
             }
             Pr::List => {
-                println!("List of Pull Requests:")
+                println!("List of Pull Requests:");
             }
         }
     }
