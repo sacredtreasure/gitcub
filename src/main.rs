@@ -1,7 +1,8 @@
 mod gitcub;
+mod pr;
 
+use crate::gitcub::Gitcub;
 use clap::Parser;
-use gitcub::Gitcub;
 
 #[derive(Parser)]
 
@@ -12,6 +13,7 @@ struct Cli {
 
 fn main() {
     let cli = Cli::parse(); 
+    cli.command.exec();
 }
 
 
